@@ -1,22 +1,8 @@
-load("@rules_cc//cc:defs.bzl", "cc_library")
+load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
 
 
 cc_library(
-    name = "catch2",
-    copts = [
-        "-std=c++11",
-    ],
-    hdrs = [
-        "third_party/catch2/catch.hpp",
-    ],
-    includes = [
-        "third_party",
-    ],
-    visibility = ["//visibility:public"],
-)
-
-cc_library(
-    name = "cpp_template",
+    name = "inversify_visualizer",
     copts = [
         "-std=c++17",
         "-pedantic-errors",
@@ -30,17 +16,24 @@ cc_library(
     includes = [
         "include",
     ],
-    visibility = ["//visibility:public"]
+    visibility = ["//visibility:public"],
+    deps = [
+        "@inversify//:inversify",
+        "@boost//:core",
+        "@boost//:graph",
+    ],
 )
 
 cc_binary(
-    name = "test",
+    name = "example",
+    copts = [
+        "-DINVERSIFY_BINDING_INSPECTION",
+    ],
     srcs = glob([
-        "test/**/*.cpp",
+        "example/**/*.cpp",
     ]),
     deps = [
-        ":catch2",
-        ":cpp_template"
+        ":inversify_visualizer",
     ],
-    visibility = ["//visibility:public"]
+    visibility = ["//visibility:public"],
 )
