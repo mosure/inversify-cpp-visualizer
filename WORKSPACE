@@ -15,5 +15,5 @@ boost_deps()
 git_repository(
     name = "inversify",
     remote = "git@github.com:mosure/inversify-cpp.git",
-    commit = "92f6681a15e1926848ffdf1716feb785ffa50463",
+    commit = "c8c11572d346a8957aee8357c53587e6bf34c4f3",
 )
