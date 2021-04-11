@@ -27,6 +27,7 @@ cc_library(
 cc_binary(
     name = "example",
     copts = [
+        "-std=c++17",
         "-DINVERSIFY_BINDING_INSPECTION",
     ],
     srcs = glob([

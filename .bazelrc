@@ -1,3 +1,1 @@
 common:windows --copt="/std:c++17" --copt="/W4"
-common:linux --copt="-std=c++17"
-common:macos --copt="-std=c++17"
